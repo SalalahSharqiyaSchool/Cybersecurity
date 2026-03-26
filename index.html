@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أسبوع الوعي بالأمن السيبراني - سلطنة عمان</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="assets/images/favicon.ico">
+</head>
+<body data-theme="light">
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader">
+            <div class="shield-spin">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <span>جاري التحميل...</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-shield-virus"></i>
+                    <span>أسبوع الأمن السيبراني</span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link active" data-page="home">الرئيسية</a></li>
+                    <li><a href="pages/about.html" class="nav-link" data-page="about">عن الأمن السيبراني</a></li>
+                    <li><a href="pages/threats.html" class="nav-link" data-page="threats">التهديدات</a></li>
+                    <li><a href="pages/tips.html" class="nav-link" data-page="tips">نصائح الحماية</a></li>
+                    <li><a href="pages/activities.html" class="nav-link" data-page="activities">أنشطة تفاعلية</a></li>
+                    <li><a href="pages/videos.html" class="nav-link" data-page="videos">فيديوهات</a></li>
+                    <li><a href="pages/teachers.html" class="nav-link" data-page="teachers">للمعلمين</a></li>
+                    <li><a href="pages/contact.html" class="nav-link" data-page="contact">اتصل بنا</a></li>
+                </ul>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle" title="تبديل الوضع الليلي">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="nav-toggle" id="navToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <div class="hero-badge animate-pop">
+                    <i class="fas fa-crown"></i>
+                    <span>أسبوع الوعي الوطني</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="gradient-text">حماية</span>
+                    <span class="hero-subtitle">عالمك الرقمي</span>
+                </h1>
+                <p class="hero-description">
+                    اكتشف كيف تحمي نفسك وأصدقاءك من مخاطر الإنترنت 
+                    من خلال أنشطة تفاعلية ونصائح عملية مصممة خصيصاً للطلاب
+                </p>
+                <div class="hero-cta">
+                    <a href="pages/activities.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-rocket"></i>
+                        ابدأ التعلم الآن
+                    </a>
+                    <a href="pages/tips.html" class="btn btn-outline btn-large">
+                        <i class="fas fa-lightbulb"></i>
+                        نصائح سريعة
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <span><strong>12+</strong> نشاط تفاعلي</span>
+                    <span><strong>247</strong> نصيحة أمان</span>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-elements">
+                    <div class="float-item shield">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="float-item lock">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="float-item globe">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Stats -->
+        <section class="stats-section reveal">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-number" data-target="95000">0</div>
+                        <div class="stat-label">طالب شارك</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="stat-number" data-target="247">0</div>
+                        <div class="stat-label">نصيحة أمان</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="stat-number" data-target="15">0</div>
+                        <div class="stat-label">لعبة تفاعلية</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features-section reveal">
+            <div class="container">
+                <h2 class="section-title">ماذا ستتعلم في هذا الأسبوع؟</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bug danger"></i>
+                        </div>
+                        <h3>الفيروسات والبرمجيات الضارة</h3>
+                        <p>تعلم كيف تتعرف على الفيروسات وتحمي جهازك منها</p>
+                        <a href="pages/threats.html" class="feature-link">
+                            اكتشف المزيد <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-fish warning"></i>
+                        </div>
+                        <h3>التصيد الاحتيالي (Phishing)</h3>
+                        <p>كيف تكتشف الرسائل المزيفة على واتساب وسناب شات</p>
+                        <a href="pages/threats.html" class="feature-link">
+                            اكتشف المزيد <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock success"></i>
+                        </div>
+                        <h3>كلمات المرور القوية</h3>
+                        <p>أسرار إنشاء كلمات مرور لا يستطيع أحد كسرها</p>
+                        <a href="pages/tips.html" class="feature-link">
+                            اكتشف المزيد <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-gamepad fun"></i>
+                        </div>
+                        <h3>الألعاب والمواقع الآمنة</h3>
+                        <p>العب أونلاين مع أصدقائك بأمان تام</p>
+                        <a href="pages/tips.html" class="feature-link">
+                            اكتشف المزيد <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section reveal">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>هل أنت جاهز للتحدي السيبراني؟</h2>
+                    <p>اختبر معلوماتك واربح شهادة الأمن السيبراني!</p>
+                    <div class="cta-buttons">
+                        <a href="pages/activities.html" class="btn btn-primary btn-large">
+                            <i class="fas fa-trophy"></i>
+                            ابدأ الاختبار
+                        </a>
+                        <a href="pages/videos.html" class="btn btn-outline btn-large">
+                            شاهد الفيديوهات
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-shield-virus"></i>
+                        <span>أسبوع الوعي بالأمن السيبراني</span>
+                    </div>
+                    <p>مشروع وطني لتوعية الطلاب بالأمن السيبراني</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>الصفحات</h4>
+                        <a href="pages/about.html">عن الأمن السيبراني</a>
+                        <a href="pages/threats.html">التهديدات</a>
+                        <a href="pages/tips.html">نصائح الحماية</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>الأنشطة</h4>
+                        <a href="pages/activities.html">الألعاب التفاعلية</a>
+                        <a href="pages/videos.html">الفيديوهات التعليمية</a>
+                        <a href="pages/teachers.html">موارد المعلمين</a>
+                    </div>
+                </div>
+                <div class="footer-credit">
+                    <div class="credit-text">
+                        <p>تصميم وإعداد: أ. فيصل العريبي</p>
+                        <p>© 2026 جميع الحقوق محفوظة - سلطنة عمان</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" title="العودة للأعلى">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
