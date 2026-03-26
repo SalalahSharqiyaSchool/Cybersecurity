@@ -1,245 +1,232 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أسبوع الوعي بالأمن السيبراني - سلطنة عمان</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="assets/images/favicon.ico">
+
+<html class="dark" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#b9c7e4",
+              "surface-variant": "#27354c",
+              "secondary": "#b9c7e4",
+              "tertiary-fixed": "#d4e6e5",
+              "on-surface-variant": "#c5c6cd",
+              "primary-fixed": "#5ffbd6",
+              "outline-variant": "#44474d",
+              "on-primary-fixed-variant": "#005142",
+              "on-secondary-fixed": "#0d1c32",
+              "secondary-container": "#3c4962",
+              "on-error": "#690005",
+              "on-tertiary": "#233333",
+              "on-secondary-container": "#abb9d6",
+              "secondary-fixed": "#d6e3ff",
+              "primary-container": "#001e17",
+              "surface-container": "#112036",
+              "tertiary-fixed-dim": "#b8cac9",
+              "on-tertiary-fixed-variant": "#3a4a49",
+              "tertiary": "#b8cac9",
+              "surface-container-highest": "#27354c",
+              "surface": "#041329",
+              "on-background": "#d6e3ff",
+              "surface-tint": "#38debb",
+              "surface-container-lowest": "#010e24",
+              "inverse-surface": "#d6e3ff",
+              "on-primary-container": "#009379",
+              "on-tertiary-container": "#748585",
+              "primary-fixed-dim": "#38debb",
+              "on-error-container": "#ffdad6",
+              "primary": "#38debb",
+              "on-tertiary-fixed": "#0e1e1e",
+              "surface-bright": "#2c3951",
+              "error-container": "#93000a",
+              "error": "#ffb4ab",
+              "background": "#041329",
+              "outline": "#8f9097",
+              "surface-container-low": "#0d1c32",
+              "tertiary-container": "#0c1c1c",
+              "inverse-primary": "#006b58",
+              "on-secondary-fixed-variant": "#39475f",
+              "on-secondary": "#233148",
+              "on-surface": "#d6e3ff",
+              "on-primary-fixed": "#002019",
+              "on-primary": "#00382d",
+              "surface-container-high": "#1c2a41",
+              "inverse-on-surface": "#233148",
+              "surface-dim": "#041329"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(17, 32, 54, 0.6); backdrop-filter: blur(20px); }
+        .neon-glow { text-shadow: 0 0 15px rgba(56, 222, 187, 0.4); }
+        .gradient-mesh { background: radial-gradient(circle at top right, #005142 0%, #041329 70%); }
+    </style>
 </head>
-<body data-theme="light">
-    <!-- Preloader -->
-    <div class="preloader" id="preloader">
-        <div class="loader">
-            <div class="shield-spin">
-                <i class="fas fa-shield-alt"></i>
-            </div>
-            <span>جاري التحميل...</span>
-        </div>
-    </div>
-
-    <!-- Header -->
-    <header class="header" id="header">
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="logo">
-                    <i class="fas fa-shield-virus"></i>
-                    <span>أسبوع الأمن السيبراني</span>
-                </div>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.html" class="nav-link active" data-page="home">الرئيسية</a></li>
-                    <li><a href="pages/about.html" class="nav-link" data-page="about">عن الأمن السيبراني</a></li>
-                    <li><a href="pages/threats.html" class="nav-link" data-page="threats">التهديدات</a></li>
-                    <li><a href="pages/tips.html" class="nav-link" data-page="tips">نصائح الحماية</a></li>
-                    <li><a href="pages/activities.html" class="nav-link" data-page="activities">أنشطة تفاعلية</a></li>
-                    <li><a href="pages/videos.html" class="nav-link" data-page="videos">فيديوهات</a></li>
-                    <li><a href="pages/teachers.html" class="nav-link" data-page="teachers">للمعلمين</a></li>
-                    <li><a href="pages/contact.html" class="nav-link" data-page="contact">اتصل بنا</a></li>
-                </ul>
-                <div class="header-actions">
-                    <button class="theme-toggle" id="themeToggle" title="تبديل الوضع الليلي">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                    <button class="nav-toggle" id="navToggle">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <main>
-        <section class="hero" id="hero">
-            <div class="hero-bg"></div>
-            <div class="hero-content">
-                <div class="hero-badge animate-pop">
-                    <i class="fas fa-crown"></i>
-                    <span>أسبوع الوعي الوطني</span>
-                </div>
-                <h1 class="hero-title">
-                    <span class="gradient-text">حماية</span>
-                    <span class="hero-subtitle">عالمك الرقمي</span>
-                </h1>
-                <p class="hero-description">
-                    اكتشف كيف تحمي نفسك وأصدقاءك من مخاطر الإنترنت 
-                    من خلال أنشطة تفاعلية ونصائح عملية مصممة خصيصاً للطلاب
-                </p>
-                <div class="hero-cta">
-                    <a href="pages/activities.html" class="btn btn-primary btn-large">
-                        <i class="fas fa-rocket"></i>
-                        ابدأ التعلم الآن
-                    </a>
-                    <a href="pages/tips.html" class="btn btn-outline btn-large">
-                        <i class="fas fa-lightbulb"></i>
-                        نصائح سريعة
-                    </a>
-                </div>
-                <div class="hero-stats">
-                    <span><strong>12+</strong> نشاط تفاعلي</span>
-                    <span><strong>247</strong> نصيحة أمان</span>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="floating-elements">
-                    <div class="float-item shield">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="float-item lock">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div class="float-item globe">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Quick Stats -->
-        <section class="stats-section reveal">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="stat-number" data-target="95000">0</div>
-                        <div class="stat-label">طالب شارك</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <div class="stat-number" data-target="247">0</div>
-                        <div class="stat-label">نصيحة أمان</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <div class="stat-number" data-target="15">0</div>
-                        <div class="stat-label">لعبة تفاعلية</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features -->
-        <section class="features-section reveal">
-            <div class="container">
-                <h2 class="section-title">ماذا ستتعلم في هذا الأسبوع؟</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-bug danger"></i>
-                        </div>
-                        <h3>الفيروسات والبرمجيات الضارة</h3>
-                        <p>تعلم كيف تتعرف على الفيروسات وتحمي جهازك منها</p>
-                        <a href="pages/threats.html" class="feature-link">
-                            اكتشف المزيد <i class="fas fa-arrow-left"></i>
-                        </a>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-fish warning"></i>
-                        </div>
-                        <h3>التصيد الاحتيالي (Phishing)</h3>
-                        <p>كيف تكتشف الرسائل المزيفة على واتساب وسناب شات</p>
-                        <a href="pages/threats.html" class="feature-link">
-                            اكتشف المزيد <i class="fas fa-arrow-left"></i>
-                        </a>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-lock success"></i>
-                        </div>
-                        <h3>كلمات المرور القوية</h3>
-                        <p>أسرار إنشاء كلمات مرور لا يستطيع أحد كسرها</p>
-                        <a href="pages/tips.html" class="feature-link">
-                            اكتشف المزيد <i class="fas fa-arrow-left"></i>
-                        </a>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-gamepad fun"></i>
-                        </div>
-                        <h3>الألعاب والمواقع الآمنة</h3>
-                        <p>العب أونلاين مع أصدقائك بأمان تام</p>
-                        <a href="pages/tips.html" class="feature-link">
-                            اكتشف المزيد <i class="fas fa-arrow-left"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="cta-section reveal">
-            <div class="container">
-                <div class="cta-content">
-                    <h2>هل أنت جاهز للتحدي السيبراني؟</h2>
-                    <p>اختبر معلوماتك واربح شهادة الأمن السيبراني!</p>
-                    <div class="cta-buttons">
-                        <a href="pages/activities.html" class="btn btn-primary btn-large">
-                            <i class="fas fa-trophy"></i>
-                            ابدأ الاختبار
-                        </a>
-                        <a href="pages/videos.html" class="btn btn-outline btn-large">
-                            شاهد الفيديوهات
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <i class="fas fa-shield-virus"></i>
-                        <span>أسبوع الوعي بالأمن السيبراني</span>
-                    </div>
-                    <p>مشروع وطني لتوعية الطلاب بالأمن السيبراني</p>
-                </div>
-                <div class="footer-links">
-                    <div class="link-group">
-                        <h4>الصفحات</h4>
-                        <a href="pages/about.html">عن الأمن السيبراني</a>
-                        <a href="pages/threats.html">التهديدات</a>
-                        <a href="pages/tips.html">نصائح الحماية</a>
-                    </div>
-                    <div class="link-group">
-                        <h4>الأنشطة</h4>
-                        <a href="pages/activities.html">الألعاب التفاعلية</a>
-                        <a href="pages/videos.html">الفيديوهات التعليمية</a>
-                        <a href="pages/teachers.html">موارد المعلمين</a>
-                    </div>
-                </div>
-                <div class="footer-credit">
-                    <div class="credit-text">
-                        <p>تصميم وإعداد: أ. فيصل العريبي</p>
-                        <p>© 2026 جميع الحقوق محفوظة - سلطنة عمان</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to Top -->
-    <button class="back-to-top" id="backToTop" title="العودة للأعلى">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <script src="js/script.js"></script>
-</body>
-</html>
+<body class="bg-surface-container-lowest text-on-surface selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#010e24]/60 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(56,222,187,0.05)] bg-gradient-to-b from-[#010e24] to-transparent">
+<div class="flex flex-row-reverse justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-[#38debb] font-['Space_Grotesk']">Digital Oasis</div>
+<div class="hidden md:flex flex-row-reverse gap-8 items-center font-['Space_Grotesk'] text-sm font-medium tracking-tight">
+<a class="text-slate-300 hover:text-[#38debb] transition-colors" href="#">الرئيسية</a>
+<a class="text-[#38debb] border-b-2 border-[#38debb] pb-1" href="#">حول</a>
+<a class="text-slate-300 hover:text-[#38debb] transition-colors" href="#">التهديدات</a>
+<a class="text-slate-300 hover:text-[#38debb] transition-colors" href="#">نصائح الأمان</a>
+<a class="text-slate-300 hover:text-[#38debb] transition-colors" href="#">الأنشطة</a>
+<a class="text-slate-300 hover:text-[#38debb] transition-colors" href="#">الفيديوهات</a>
+<a class="text-slate-300 hover:text-[#38debb] transition-colors" href="#">المصادر</a>
+<a class="text-slate-300 hover:text-[#38debb] transition-colors" href="#">اتصل بنا</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#38debb] p-2 hover:bg-[#112036]/50 rounded-lg transition-all active:scale-95 duration-200" data-icon="dark_mode">dark_mode</button>
+<button class="md:hidden material-symbols-outlined text-[#38debb]" data-icon="menu">menu</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 min-h-screen">
+<!-- Hero Section -->
+<section class="relative px-8 py-20 overflow-hidden gradient-mesh">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+<div class="z-10 text-right">
+<span class="inline-block py-1 px-4 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">مبادرة وطنية للشباب</span>
+<h1 class="text-5xl md:text-7xl font-extrabold text-on-surface tracking-tighter mb-6 leading-tight">ما هو <span class="text-primary neon-glow">الأمن السيبراني؟</span></h1>
+<p class="text-lg md:text-xl text-on-surface-variant leading-relaxed mb-8 max-w-2xl">تخيل أن الإنترنت مدينة كبيرة، والأمن السيبراني هو الحارس الذي يحمي بيتك الرقمي وأسرارك من المتسللين. نحن هنا لنعلمك كيف تكون حارساً ذكياً لنفسك!</p>
+<div class="flex gap-4 justify-start">
+<button class="px-8 py-4 bg-gradient-to-l from-primary to-on-primary-container text-on-primary font-bold rounded-xl shadow-lg hover:scale-105 transition-transform">ابدأ رحلتك</button>
+<button class="px-8 py-4 border border-outline-variant text-primary font-bold rounded-xl hover:bg-primary/5 transition-colors">دليل المعلم</button>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -top-10 -right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+<img alt="Cybersecurity concept" class="rounded-3xl shadow-2xl relative z-10 border border-white/10" data-alt="futuristic digital shield glowing in neon cyan against a dark blue background with abstract data particles and geometric lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcJw7kysr__HhWXdRxkhTWs85OkY3M3goGTY34JDvFj80bI0fjmCLngESOVR9XkbDICPrkCfnyaENOzmXQLXzqs3XlTXIAUyTe-zeqjxS2iEH8FzAji1BJ2vxWUgaeFTlWKAzOW18HpoEprkpvZM8fxS650QVJrJzCw7X3QVB-8Xiemz2p2XdEMXRHsbGKGsVpy7WcoFizbr_EQZycUD9C0WIQTM1BNDdEtOQygpGj8Rc4wXKve1gzO9nIJkfkAh-UQTMGO0uYLQ"/>
+</div>
+</div>
+</section>
+<!-- Bento Grid Explanation -->
+<section class="px-8 py-20 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-primary mb-4">لماذا نهتم؟</h2>
+<p class="text-on-surface-variant">عالمنا اليوم أصبح متصلاً أكثر من أي وقت مضى</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
+<!-- Large Feature -->
+<div class="md:col-span-2 md:row-span-2 glass-panel p-8 rounded-3xl flex flex-col justify-end relative overflow-hidden group">
+<img alt="Social Media Safety" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-700" data-alt="Close up of a hand holding a glowing smartphone displaying colorful social media icons with a safe padlock overlay" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTJLQZYJvuUSC5otqQ9uYtOeTDSTwkgQW5y9KvjZqAID7VIDq8DXEkrAOX9lseiftw8BJti0e5AV0hf9Ea9KxAOcF6CqH5hoqiOhsL0zwbIBNolzWgiUbcEZrIGdfCad7lw0UaXS71fYb60QQtvZiEk37Xvee2WL2C42VhRu85pZNxtBZFt_68390qejW4jEeIrnu4XGq6cGwGM1STjY2jbYMTHOiJSOpmJWrbY84ymF8WsIVNfVQH8Dfna7TTWFGUYJRCEAJ1MA"/>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="security">security</span>
+<h3 class="text-2xl font-bold mb-3">حماية الهوية الرقمية</h3>
+<p class="text-on-surface-variant leading-relaxed">في تطبيقات التواصل الاجتماعي، اسمك وصورك ومعلوماتك هي "هويتك". الأمن السيبراني يمنع أي شخص من انتحال شخصيتك أو سرقة ذكرياتك.</p>
+</div>
+</div>
+<!-- Mini Feature 1 -->
+<div class="bg-surface-container p-8 rounded-3xl hover:bg-surface-container-high transition-all cursor-default">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="videogame_asset">videogame_asset</span>
+<h3 class="text-xl font-bold mb-2">ألعاب الفيديو</h3>
+<p class="text-on-surface-variant text-sm">احذر من الروابط التي تعد بـ "جواهر مجانية" أو "ترقيات"؛ قد تكون فخاً لسرقة حسابك.</p>
+</div>
+<!-- Mini Feature 2 -->
+<div class="bg-surface-container p-8 rounded-3xl hover:bg-surface-container-high transition-all cursor-default">
+<span class="material-symbols-outlined text-tertiary text-4xl mb-4" data-icon="privacy_tip">privacy_tip</span>
+<h3 class="text-xl font-bold mb-2">الخصوصية</h3>
+<p class="text-on-surface-variant text-sm">معلوماتك الخاصة هي كنزك. تعلم متى تقول "لا" لمشاركة موقعك أو رقم هاتفك.</p>
+</div>
+<!-- Wide Feature -->
+<div class="md:col-span-1 bg-gradient-to-br from-primary-container to-surface-container p-8 rounded-3xl">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="family_history">family_history</span>
+<h3 class="text-xl font-bold mb-2">تأثير اجتماعي</h3>
+<p class="text-on-surface-variant text-sm">أمانك الرقمي يحمي عائلتك وأصدقاءك أيضاً من الهجمات التي قد تنتشر من خلالك.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Real Life Examples Section -->
+<section class="px-8 py-20 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-3xl font-bold text-on-surface text-center mb-12">قصص من الواقع الرقمي</h2>
+<div class="grid md:grid-cols-2 gap-8">
+<!-- Example 1 -->
+<div class="flex flex-col md:flex-row gap-6 p-6 rounded-3xl bg-surface-container hover:shadow-xl transition-shadow group">
+<div class="w-24 h-24 shrink-0 rounded-2xl bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="alternate_email">alternate_email</span>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-2">خدعة "هدية المشاهير"</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">تلقى أحمد رسالة من حساب يشبه حساب لاعبه المفضل يطلب منه النقر على رابط لاستلام هدية. بفضل وعيه، أدرك أحمد أن الرابط غريب ولم يضغط عليه.</p>
+<div class="mt-4 flex gap-2">
+<span class="text-[10px] bg-secondary/10 text-secondary px-2 py-1 rounded">#Phishing</span>
+<span class="text-[10px] bg-secondary/10 text-secondary px-2 py-1 rounded">#Social_Engineering</span>
+</div>
+</div>
+</div>
+<!-- Example 2 -->
+<div class="flex flex-col md:flex-row gap-6 p-6 rounded-3xl bg-surface-container hover:shadow-xl transition-shadow group">
+<div class="w-24 h-24 shrink-0 rounded-2xl bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="password">password</span>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-2">المفتاح السري القوي</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">سارة كانت تستخدم "123456" لكل حساباتها. بعد درس في الأمن السيبراني، قامت بتفعيل ميزة التحقق بخطوتين (2FA) وأصبحت حساباتها الآن كخزنة حديدية.</p>
+<div class="mt-4 flex gap-2">
+<span class="text-[10px] bg-primary/10 text-primary px-2 py-1 rounded">#Passwords</span>
+<span class="text-[10px] bg-primary/10 text-primary px-2 py-1 rounded">#2FA</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-8 py-24">
+<div class="max-w-5xl mx-auto bg-primary text-on-primary p-12 rounded-[2.5rem] relative overflow-hidden text-center">
+<div class="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+<div class="relative z-10">
+<h2 class="text-4xl font-extrabold mb-6 font-headline">جاهز لتصبح بطلاً سيبرانياً؟</h2>
+<p class="text-on-primary/90 text-lg mb-8 max-w-2xl mx-auto">انضم إلى آلاف الطلاب في عمان وشارك في تحديات الأسبوع الوطني للأمن السيبراني. الجوائز والمعرفة في انتظارك!</p>
+<button class="px-10 py-5 bg-on-primary-container text-white font-black rounded-full hover:scale-110 transition-transform shadow-2xl">سجل الآن مجاناً</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-[#112036] bg-[#010e24]">
+<div class="flex flex-col md:flex-row-reverse justify-between items-center px-8 py-12 w-full max-w-7xl mx-auto">
+<div class="flex flex-col items-center md:items-end mb-8 md:mb-0">
+<div class="text-lg font-bold text-[#38debb] mb-4">Digital Oasis</div>
+<p class="text-slate-400 font-['Plus_Jakarta_Sans'] text-sm leading-[1.5] text-center md:text-right">مبادرة توعوية لدعم الثقافة الرقمية لدى النشء في سلطنة عمان.</p>
+</div>
+<div class="flex flex-col items-center md:items-start">
+<div class="text-[#38debb] font-['Plus_Jakarta_Sans'] text-sm mb-4">© 2026 جميع الحقوق محفوظة</div>
+<div class="text-slate-400 hover:text-[#38debb] transition-colors cursor-default font-['Plus_Jakarta_Sans'] text-sm">تصميم وإعداد: أ. فيصل العريبي</div>
+<div class="flex gap-4 mt-6">
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary/20 transition-colors" href="#">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="share">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary/20 transition-colors" href="#">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="public">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary/20 transition-colors" href="#">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="mail">mail</span>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
