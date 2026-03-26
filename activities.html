@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأنشطة التفاعلية - أسبوع الأمن السيبراني</title>
+    <!-- Same enhanced head from previous version -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Same Tailwind config and enhanced styles -->
+</head>
+
+<body class="cyber-matrix relative overflow-x-hidden text-white min-h-screen">
+    <!-- Same Enhanced Navbar with active Activities tab -->
+
+    <!-- Hero Section for Activities -->
+    <section class="hero-bg pt-32 pb-32 lg:pt-44 lg:pb-44 relative">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 text-center relative z-20">
+            <div class="animate__animated animate__fadeInUp">
+                <div class="inline-flex items-center justify-center space-x-4 px-8 py-4 bg-gradient-to-r from-neon-purple/20 to-neon-emerald/20 backdrop-blur-xl rounded-3xl border border-white/20 mb-12 neon-glow-purple mx-auto max-w-max">
+                    <i class="fas fa-gamepad text-2xl"></i>
+                    <span class="font-bold text-xl">الأنشطة التفاعلية المتقدمة</span>
+                </div>
+            </div>
+
+            <h1 class="text-6xl lg:text-8xl xl:text-9xl font-black gradient-text mb-12 leading-tight animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
+                اختبر <span class="text-7xl lg:text-9xl block animate__animated animate__pulse animate__infinite">مهاراتك</span>
+            </h1>
+            <p class="text-2xl lg:text-3xl text-slate-200/90 mb-16 max-w-4xl mx-auto leading-relaxed animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
+                جرب <strong class="text-neon-emerald">فاحص كلمة المرور</strong> و <strong class="text-neon-blue">اختبار الذكاء السيبراني</strong><br>
+                واحصل على <strong class="text-neon-purple">شهادة رقمية</strong> في نهاية كل نشاط!
+            </p>
+        </div>
+    </section>
+
+    <!-- Password Strength Checker - Ultra Interactive -->
+    <section class="py-32 relative">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+            <div class="glass-morph rounded-4xl p-16 lg:p-24 border-4 border-neon-emerald/30 shadow-2xl neon-glow-emerald hover:neon-glow-emerald cyber-card group">
+                <!-- Header -->
+                <div class="text-center mb-16 animate__animated animate__fadeInUp">
+                    <div class="w-28 h-28 bg-gradient-to-br from-orange-500 to-red-500 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl neon-glow-emerald group-hover:animate-bounce-glow group-hover:scale-110 transition-all duration-700">
+                        <i class="fas fa-key text-3xl text-white"></i>
+                    </div>
+                    <h2 class="text-5xl lg:text-6xl font-black text-orange-500 mb-6 group-hover:gradient-text">فاحص قوة كلمة المرور</h2>
+                    <p class="text-2xl text-slate-300">اكتب كلمة مرور وشاهد التحليل المتقدم فوراً</p>
+                </div>
+
+                <!-- Input & Feedback -->
+                <div class="max-w-4xl mx-auto space-y-12">
+                    <!-- Password Input -->
+                    <div class="relative">
+                        <input 
+                            type="password" 
+                            id="passwordInput" 
+                            placeholder="جرب كتابة كلمة مرور قوية هنا... 🔐" 
+                            class="w-full p-10 lg:p-12 bg-cyber-navy-900/50 border-4 border-slate-700/50 rounded-4xl text-2xl lg:text-3xl font-bold text-white placeholder-slate-500 focus:border-neon-emerald focus:outline-none focus:shadow-neon-glow-emerald transition-all duration-1000 text-right peer"
+                            maxlength="50"
+                        >
+                        <!-- Toggle Visibility -->
+                        <button id="togglePassword" class="absolute left-6 top-1/2 -translate-y-1/2 text-2xl text-slate-400 hover:text-neon-emerald transition-colors group-hover:animate-spin">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <!-- Strength Indicator Live -->
+                        <div id="liveStrength" class="absolute right-6 top-1/2 -translate-y-1/2 text-2xl font-black opacity-0 transition-all duration-500"></div>
+                    </div>
+
+                    <!-- Main Feedback -->
+                    <div id="passwordFeedback" class="space-y-8 opacity-0 transition-all duration-700">
+                        <!-- Progress Bar -->
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-6 rtl:space-x-reverse">
+                                <div class="flex-1 bg-slate-900/50 backdrop-blur-xl rounded-3xl h-6 lg:h-8 overflow-hidden border-2 border-slate-700/50">
+                                    <div id="strengthBar" class="h-full rounded-2xl transition-all duration-1500 ease-out w-0 origin-right password-weak shadow-lg"></div>
+                                </div>
+                                <div id="strengthLevel" class="text-3xl lg:text-4xl font-black min-w-[120px] text-center">ضعيف</div>
+                            </div>
+                            
+                            <!-- Dynamic Tips -->
+                            <div id="dynamicTips" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-8 lg:p-12 bg-slate-900/30 backdrop-blur-xl rounded-3xl border border-slate-700/50"></div>
+                        </div>
+
+                        <!-- Requirements Checklist -->
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="req-item flex items-center space-x-4 p-6 rounded-3xl bg-slate-900/30 border-2 border-transparent transition-all duration-500 hover:scale-105 hover:border-neon-emerald/50">
+                                <div id="lengthReq" class="w-12 h-12 rounded-2xl bg-red-500/80 flex items-center justify-center text-xl font-bold text-white shadow-lg flex-shrink-0">✗</div>
+                                <div>
+                                    <div class="font-bold text-xl text-slate-300 mb-1">12+ حرف</div>
+                                    <div class="text-sm text-slate-500">يجب أن تكون 12 حرفاً على الأقل</div>
+                                </div>
+                            </div>
+                            <div class="req-item flex items-center space-x-4 p-6 rounded-3xl bg-slate-900/30 border-2 border-transparent transition-all duration-500 hover:scale-105 hover:border-neon-blue/50">
+                                <div id="upperReq" class="w-12 h-12 rounded-2xl bg-red-500/80 flex items-center justify-center text-xl font-bold text-white shadow-lg flex-shrink-0">✗</div>
+                                <div>
+                                    <div class="font-bold text-xl text-slate-300 mb-1">حروف كبيرة</div>
+                                    <div class="text-sm text-slate-500">A B C D ...</div>
+                                </div>
+                            </div>
+                            <div class="req-item flex items-center space-x-4 p-6 rounded-3xl bg-slate-900/30 border-2 border-transparent transition-all duration-500 hover:scale-105 hover:border-neon-emerald/50">
+                                <div id="numberReq" class="w-12 h-12 rounded-2xl bg-red-500/80 flex items-center justify-center text-xl font-bold text-white shadow-lg flex-shrink-0">✗</div>
+                                <div>
+                                    <div class="font-bold text-xl text-slate-300 mb-1">أرقام</div>
+                                    <div class="text-sm text-slate-500">0 1 2 3 4 5 6 7 8 9</div>
+                                </div>
+                            </div>
+                            <div class="req-item flex items-center space-x-4 p-6 rounded-3xl bg-slate-900/30 border-2 border-transparent transition-all duration-500 hover:scale-105 hover:border-neon-purple/50">
+                                <div id="specialReq" class="w-12 h-12 rounded-2xl bg-red-500/80 flex items-center justify-center text-xl font-bold text-white shadow-lg flex-shrink-0">✗</div>
+                                <div>
+                                    <div class="font-bold text-xl text-slate-300 mb-1">رموز خاصة</div>
+                                    <div class="text-sm text-slate-500">! @ # $ % ^ & *</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Generate Password Button -->
+                        <div class="text-center pt-12 border-t border-slate-700/50">
+                            <button id="generatePassword" class="bg-gradient-to-r from-neon-emerald to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white px-16 py-6 lg:px-20 lg:py-8 rounded-4xl font-black text-2xl shadow-2xl neon-glow-emerald hover:neon-glow-emerald hover:scale-105 hover:-translate-y-2 transition-all duration-500 flex items-center space-x-4 mx-auto">
+                                <i class="fas fa-magic"></i>
+                                <span>إنشاء كلمة مرور قوية</span>
+                            </button>
+                            <p id="generatedPassword" class="mt-8 text-2xl font-mono bg-slate-900/50 backdrop-blur-xl px-8 py-4 rounded-3xl border border-slate-700/50 font-bold text-neon-emerald opacity-0 transition-all duration-500 text-center mx-auto max-w-2xl"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cyber Quiz - Full Interactive System -->
+    <section class="py-32 bg-cyber-navy-900/50 backdrop-blur-xl relative">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+            <div class="glass-morph rounded-4xl p-16 lg:p-24 border-4 border-neon-purple/30 shadow-2xl neon-glow-purple hover:neon-glow-purple cyber-card group">
+                <!-- Quiz Header -->
+                <div class="text-center mb-20 animate__animated animate__fadeInUp">
+                    <div class="w-28 h-28 bg-gradient-to-br from-neon-purple to-pink-500 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl neon-glow-purple group-hover:animate-bounce-glow group-hover:scale-110 transition-all duration-700">
+                        <i class="fas fa-brain text-3xl text-white"></i>
+                    </div>
+                    <h2 class="text-5xl lg:text-6xl font-black text-neon-purple mb-6 group-hover:gradient-text">اختبار الذكاء السيبراني</h2>
+                    <div class="text-4xl lg:text-5xl font-black text-neon-emerald mb-6" id="quizScoreDisplay">
+                        <span id="currentScore">0</span>/<span id="totalQuestions">5</span>
+                    </div>
+                    <div class="text-2xl text-slate-300 max-w-3xl mx-auto">
+                        أجب على <strong class="text-neon-emerald">5 أسئلة متقدمة</strong> واحصل على <strong class="text-neon-blue">شهادة معتمدة</strong>
+                    </div>
+                </div>
+
+                <!-- Quiz Progress Bar -->
+                <div class="mb-16">
+                    <div class="flex items-center space-x-6 rtl:space-x-reverse mb-4">
+                        <div class="flex-1 bg-slate-900/50 backdrop-blur-xl rounded-3xl h-4 lg:h-6 overflow-hidden border-2 border-slate-700/50">
+                            <div id="quizProgressBar" class="h-full bg-gradient-to-r from-neon-emerald to-neon-blue rounded-2xl transition-all duration-1000 w-0 shadow-lg"></div>
+                        </div>
+                        <span id="quizProgressText" class="font-bold text-2xl text-slate-300 min-w-[100px]">0/5</span>
+                    </div>
+                </div>
+
+                <!-- Quiz Content -->
+                <div id="quizContainer">
+                    <!-- Questions will be injected here -->
+                    <div id="questionBox" class="space-y-8 mb-16"></div>
+                    <button id="nextQuestionBtn" class="w-full lg:w-auto lg:px-20 lg:py-8 bg-gradient-to-r from-neon-emerald to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white py-6 px-16 rounded-4xl font-black text-2xl shadow-2xl neon-glow-emerald hover:neon-glow-emerald hover:scale-105 hover:-translate-y-2 transition-all duration-500 flex items-center space-x-4 mx-auto hidden">
+                        <span>السؤال التالي</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
+
+                <!-- Quiz Results -->
+                <div id="quizResults" class="hidden">
+                    <div class="text-center pt-20">
+                        <div id="finalScoreCircle" class="w-64 h-64 lg:w-80 lg:h-80 mx-auto mb-12 rounded-full bg-gradient-to-br from-neon-emerald to-teal-500 shadow-2xl flex items-center justify-center text-6xl lg:text-7xl font-black relative overflow-hidden neon-glow-emerald animate-bounce-glow">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer"></div>
+                            <span id="finalScoreNum">0</span>
+                        </div>
+                        <h3 id="resultTitle" class="text-5xl lg:text-6xl font-black gradient-text mb-8">ممتاز!</h3>
+                        <p id="resultMessage" class="text-2xl lg:text-3xl text-slate-300 mb-16 max-w-3xl mx-auto leading-relaxed">لقد أظهرت معرفة استثنائية بالأمان السيبراني!</p>
+                        
+                        <!-- Certificate Download -->
+                        <div class="space-y-8">
+                            <button id="downloadCertificate" class="bg-gradient-to-r from-neon-purple to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-16 py-8 lg:px-24 lg:py-10 rounded-4xl font-black text-2xl shadow-2xl neon-glow-purple hover:neon-glow-purple hover:scale-105 hover:-translate-y-3 transition-all duration-700 flex items-center space-x-6 mx-auto">
+                                <i class="fas fa-certificate text-3xl"></i>
+                                <span>تحميل الشهادة الرقمية</span>
+                            </button>
+                            <button id="restartQuizBtn" class="border-4 border-neon-emerald/50 hover:border-neon-emerald bg-white/5 hover:bg-white/10 backdrop-blur-xl text-neon-emerald hover:text-emerald-200 px-16 py-8 lg:px-20 lg:py-10 rounded-4xl font-black text-2xl neon-glow-emerald hover:neon-glow-emerald hover:scale-105 transition-all duration-500 flex items-center space-x-4 mx-auto">
+                                <i class="fas fa-redo text-2xl animate-spin-slow"></i>
+                                <span>إعادة الاختبار</span>
+                            </button>
+                        </div>
+
+                        <!-- Share Results -->
+                        <div class="mt-20 pt-16 border-t border-slate-700/50">
+                            <h4 class="text-3xl font-black gradient-text mb-8">شارك إنجازك! 🎉</h4>
+                            <div class="flex flex-wrap gap-6 justify-center">
+                                <button class="share-btn bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 w-20 h-20 rounded-3xl flex items-center justify-center text-white shadow-2xl neon-glow-blue hover:scale-125 hover:rotate-180 transition-all duration-500" onclick="shareScore('facebook')">
+                                    <i class="fab fa-facebook-f"></i>
+                                </button>
+                                <button class="share-btn bg-gradient-to-br from-sky-400 to-sky-500 hover:from-sky-500 hover:to-sky-600 w-20 h-20 rounded-3xl flex items-center justify-center text-white shadow-2xl neon-glow-blue hover:scale-125 hover:rotate-180 transition-all duration-500" onclick="shareScore('twitter')">
+                                    <i class="fab fa-twitter"></i>
+                                </button>
+                                <button class="share-btn bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 w-20 h-20 rounded-3xl flex items-center justify-center text-white shadow-2xl neon-glow-emerald hover:scale-125 hover:rotate-180 transition-all duration-500" onclick="shareScore('whatsapp')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Tips Section -->
+    <section class="py-32">
+        <div class="max-w-7xl mx        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-24 animate__animated animate__fadeInUp">
+                <h2 class="text-5xl lg:text-7xl font-black gradient-text mb-8">
+                    💡 نصائح <span class="text-6xl lg:text-8xl block">الأمان</span>
+                </h2>
+                <p class="text-2xl text-slate-300 max-w-4xl mx-auto">
+                    انقر على أي بطاقة لتكتشف <strong class="text-neon-emerald">نصيحة ذهبية</strong>
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Tip 1 -->
+                <div class="tip-card glass-morph rounded-4xl p-12 cursor-pointer group hover:neon-glow-emerald border-2 border-slate-700/50 hover:border-neon-emerald/50 transition-all duration-1000 cyber-card h-80 flex flex-col justify-center items-center text-center hover:scale-105 hover:rotate-1" onclick="toggleTip(this, 'استخدم شبكات WiFi موثوقة فقط. تجنب الشبكات العامة للمعاملات المهمة مثل الخدمات المصرفية.')">
+                    <i class="fas fa-wifi text-6xl text-neon-blue group-hover:text-neon-emerald mb-8 transition-all duration-700 group-hover:animate-bounce"></i>
+                    <h3 class="text-3xl font-black text-slate-200 group-hover:text-white mb-6 transition-all">الإنترنت الآمن</h3>
+                    <p class="text-xl text-slate-400 group-hover:text-slate-200 transition-all opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-20 overflow-hidden">نصيحة سرية تظهر هنا...</p>
+                </div>
+                <!-- More tip cards... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Same Enhanced Footer -->
+
+    <!-- Complete Interactive JavaScript -->
+    <script>
+        // ========================================
+        // PASSWORD STRENGTH CHECKER - FULL SYSTEM
+        // ========================================
+        class PasswordChecker {
+            constructor() {
+                this.input = document.getElementById('passwordInput');
+                this.toggleBtn = document.getElementById('togglePassword');
+                this.strengthBar = document.getElementById('strengthBar');
+                this.strengthLevel = document.getElementById('strengthLevel');
+                this.dynamicTips = document.getElementById('dynamicTips');
+                this.feedback = document.getElementById('passwordFeedback');
+                this.liveStrength = document.getElementById('liveStrength');
+                this.generateBtn = document.getElementById('generatePassword');
+                this.generatedPassword = document.getElementById('generatedPassword');
+
+                this.init();
+            }
+
+            init() {
+                this.input.addEventListener('input', (e) => this.analyze(e.target.value));
+                this.toggleBtn.addEventListener('click', () => this.toggleVisibility());
+                this.generateBtn.addEventListener('click', () => this.generateSecurePassword());
+                
+                // Save best password to localStorage
+                this.input.addEventListener('blur', () => {
+                    const analysis = this.analyze(this.input.value);
+                    if (analysis.strength >= 0.8) {
+                        this.saveBestPassword(this.input.value);
+                    }
+                });
+            }
+
+            toggleVisibility() {
+                const type = this.input.getAttribute('type') === 'password' ? 'text' : 'password';
+                this.input.setAttribute('type', type);
+                this.toggleBtn.querySelector('i').classList.toggle('fa-eye');
+                this.toggleBtn.querySelector('i').classList.toggle('fa-eye-slash');
+            }
+
+            analyze(password) {
+                if (!password) {
+                    this.clearFeedback();
+                    return { strength: 0 };
+                }
+
+                const checks = {
+                    length: password.length >= 12,
+                    upper: /[A-Z\u0640-\u0652\u0670-\u06D6]/.test(password), // Arabic + English uppercase
+                    lower: /[a-z\u0621-\u063A\u0641-\u0669]/.test(password), // Arabic + English lowercase
+                    number: /\d/.test(password),
+                    special: /[!@#$%^&*()_+\-=\$\${};':"\\|,.<>\/?]/.test(password),
+                    noCommon: !['123456', 'password', 'qwerty', 'abc123', 'admin'].some(common => 
+                        password.toLowerCase().includes(common))
+                };
+
+                const passed = Object.values(checks).filter(Boolean).length;
+                const strength = Math.min(passed / 6, 1);
+
+                this.updateVisuals(strength, checks, password);
+                this.saveAnalysisToStorage(strength, password);
+                return { strength, checks, passed };
+            }
+
+            updateVisuals(strength, checks, password) {
+                // Show feedback
+                this.feedback.style.opacity = '1';
+                this.liveStrength.style.opacity = '1';
+
+                // Update bar
+                const barWidth = strength * 100;
+                this.strengthBar.style.width = `${barWidth}%`;
+                
+                // Color & text based on strength
+                const levels = [
+                    { threshold: 0.3, class: 'password-weak', color: '#ef4444', text: 'ضعيف جداً 😞' },
+                    { threshold: 0.6, class: 'password-medium', color: '#f59e0b', text: 'متوسط ⚠️' },
+                    { threshold: 0.85, class: 'password-strong', color: '#10b981', text: 'قوي 👍' },
+                    { threshold: 1, class: 'password-perfect', color: '#059669', text: 'مثالي 🎉' }
+                ];
+
+                const level = levels.find(l => strength >= l.threshold) || levels[0];
+                this.strengthBar.className = `h-full rounded-2xl transition-all duration-1500 w-[${barWidth}%] ${level.class}`;
+                this.strengthLevel.textContent = level.text;
+                this.strengthLevel.style.color = level.color;
+                this.liveStrength.textContent = level.text;
+
+                // Update requirements
+                this.updateRequirement('lengthReq', checks.length, '✓', '12+ حرف', '#10b981');
+                this.updateRequirement('upperReq', checks.upper, '✓', 'حروف كبيرة', '#3b82f6');
+                this.updateRequirement('numberReq', checks.number, '✓', 'أرقام', '#f59e0b');
+                this.updateRequirement('specialReq', checks.special, '✓', 'رموز خاصة', '#8b5cf6');
+
+                // Dynamic tips
+                this.updateDynamicTips(checks, password);
+            }
+
+            updateRequirement(id, passed, icon, label, color) {
+                const el = document.getElementById(id);
+                el.innerHTML = passed ? icon : '✗';
+                el.parentElement.style.borderColor = passed ? color : '#ef4444';
+                el.style.background = passed ? color : '#ef4444';
+                el.parentElement.style.transform = passed ? 'scale(1.05)' : 'scale(1)';
+            }
+
+            updateDynamicTips(checks, password) {
+                const tips = [];
+                if (!checks.length) tips.push('• استخدم 12-16 حرفاً للحماية القصوى');
+                if (!checks.upper) tips.push('• أضف حروف كبيرة (A B C)');
+                if (!checks.number) tips.push('• أضف أرقام (1 2 3)');
+                if (!checks.special) tips.push('• أضف رموز خاصة (! @ # $)');
+                if (password.length > 50) tips.push('• قلل الطول لسهولة التذكر');
+
+                this.dynamicTips.innerHTML = tips.map(tip => 
+                    `<div class="flex items-center p-4 bg-slate-900/50 backdrop-blur-xl rounded-2xl border-l-4 border-neon-emerald/50">
+                        <i class="fas fa-lightbulb text-yellow-400 text-2xl mr-4 flex-shrink-0"></i>
+                        <span class="text-lg">${tip}</span>
+                    </div>`
+                ).join('');
+            }
+
+            generateSecurePassword() {
+                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+                let password = '';
+                for (let i = 0; i < 16; i++) {
+                    password += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                this.input.value = password;
+                this.analyze(password);
+                this.generatedPassword.textContent = `تم إنشاؤها: ${password}`;
+                this.generatedPassword.style.opacity = '1';
+                this.generatedPassword.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    this.generatedPassword.style.transform = 'scale(1)';
+                }, 300);
+
+                // Copy to clipboard
+                navigator.clipboard.writeText(password).then(() => {
+                    this.generateBtn.innerHTML = '<i class="fas fa-check-circle text-2xl mr-3"></i><span>تم النسخ! ✓</span>';
+                    setTimeout(() => {
+                        this.generateBtn.innerHTML = '<i class="fas fa-magic"></i><span>إنشاء كلمة مرور قوية</span>';
+                    }, 2000);
+                });
+            }
+
+            saveBestPassword(password) {
+                const best = localStorage.getItem('bestPassword') || {};
+                if (!best.strength || this.getStrength(password) > best.strength) {
+                    localStorage.setItem('bestPassword', JSON.stringify({
+                        password: password.slice(0, 8) + '...',
+                        strength: this.getStrength(password),
+                        date: new Date().toLocaleDateString('ar-SA')
+                    }));
+                }
+            }
+
+            saveAnalysisToStorage(strength, password) {
+                localStorage.setItem('lastPasswordAnalysis', JSON.stringify({
+                    strength,
+                    length: password.length,
+                    timestamp: Date.now()
+                }));
+            }
+
+            getStrength(password) {
+                // Simplified strength calculation
+                let score = 0;
+                if (password.length >= 12) score += 25;
+                if (/[A-Z]/.test(password)) score += 15;
+                if (/[a-z]/.test(password)) score += 15;
+                if (/\d/.test(password)) score += 20;
+                if (/[^A-Za-z0-9]/.test(password)) score += 25;
+                return Math.min(score / 100, 1);
+            }
+
+            clearFeedback() {
+                this.feedback.style.opacity = '0';
+                this.liveStrength.style.opacity = '0';
+                this.strengthBar.style.width = '0%';
+            }
+        }
+
+        // ========================================
+        // CYBER QUIZ - COMPLETE SYSTEM WITH LOCALSTORAGE
+        // ========================================
+        class CyberQuiz {
+            constructor() {
+                this.questions = [
+                    {
+                        question: "ما هو التصيد الاحتيالي (Phishing)؟",
+                        options: [
+                            "رسالة بريد إلكتروني مزيفة تحاول سرقة بياناتك",
+                            "نوع من الأسماك المائية",
+                            "لعبة فيديو شهيرة",
+                            "برنامج تنظيف للكمبيوتر"
+                        ],
+                        correct: 0,
+                        explanation: "التصيد الاحتيالي هو أكثر هجمات السيبرانية شيوعاً، حيث يحاول المحتالون خداعك للحصول على بياناتك الشخصية.",
+                        points: 20
+                    },
+                    {
+                        question: "أي من الخيارات التالية يُعتبر كلمة مرور قوية؟",
+                        options: [
+                            "123456",
+                            "salalah123",
+                            "S@l@lah2026!",
+                            "password"
+                        ],
+                        correct: 2,
+                        explanation: "كلمة المرور القوية تحتوي على حروف كبيرة وصغيرة، أرقام، ورموز خاصة.",
+                        points: 20
+                    },
+                    {
+                        question: "ما فائدة المصادقة الثنائية (2FA)؟",
+                        options: [
+                            "تسريع تسجيل الدخول",
+                            "جعل كلمة المرور أقصر",
+                            "حماية إضافية حتى لو سرقت كلمة المرور",
+                            "توفير مساحة تخزين"
+                        ],
+                        correct: 2,
+                        explanation: "2FA تضيف طبقة حماية ثانية باستخدام رمز يُرسل للهاتف.",
+                        points: 20
+                    },
+                    {
+                        question: "عند تلقي مكالمة من 'البنك' يطلبون معلوماتك، ماذا تفعل؟",
+                        options: [
+                            "تعطيهم كلمة المرور",
+                            "تعلق وتستمع",
+                            "تغلق الهاتف وتتصل بالبنك مباشرة",
+                            "ترسل لهم رسالة"
+                        ],
+                        correct: 2,
+                        explanation: "لا تعطِ أبداً معلومات شخصية عبر الهاتف. اتصل بالجهة الرسمية مباشرة.",
+                        points: 20
+                    },
+                    {
+                        question: "أي من التالي يحميك من الفيروسات؟",
+                        options: [
+                            "إيقاف تحديثات النظام",
+                            "تحميل من أي موقع",
+                            "مضاد فيروسات + تحديثات منتظمة",
+                            "استخدام كلمة مرور واحدة"
+                        ],
+                        correct: 2,
+                        explanation: "مضاد الفيروسات + التحديثات المنتظمة = حماية شاملة.",
+                        points: 20
+                    }
+                ];
+
+                this.currentQuestion = 0;
+                this.score = 0;
+                this.userAnswers = [];
+                this.bestScore = localStorage.getItem('bestQuizScore') || 0;
+
+                this.init();
+            }
+
+            init() {
+                this.renderQuestion();
+                document.getElementById('nextQuestionBtn').addEventListener('click', () => this.nextQuestion());
+                document.getElementById('restartQuizBtn').addEventListener('click', () => this.restart());
+                document.getElementById('downloadCertificate').addEventListener('click', () => this.downloadCertificate());
+            }
+
+            renderQuestion() {
+                const q = this.questions[this.currentQuestion];
+                const questionBox = document.getElementById('questionBox');
+                
+                questionBox.innerHTML = `
+                    <div class="space-y-8">
+                        <div class="text-center">
+                            <h3 class="text-4xl lg:text-5xl font-black gradient-text mb-8 animate__animated animate__fadeInUp">
+                                السؤال ${this.currentQuestion + 1} من ${this.questions.length}
+                            </h3>
+                            <div class="glass-morph rounded-3xl p-12 mb-12 backdrop-blur-xl border border-neon-purple/30">
+                                <p class="text-2xl lg:text-3xl text-slate-200 leading-relaxed">${q.question}</p>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            ${q.options.map((option, index) => `
+                                <button class="quiz-option glass-morph p-10 lg:p-12 rounded-3xl border-2 border-slate-700/50 hover:border-neon-emerald/50 hover:bg-white/5 backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 text-left group ${this.userAnswers[this.currentQuestion] === index ? 'answered' : ''}" onclick="quiz.selectAnswer(${index})">
+                                    <div class="flex items-start space-x-6 rtl:space-x-reverse">
+                                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-neon-purple to-pink-500 flex items-center justify-center text-2xl font-bold text-white shadow-xl neon-glow-purple group-hover:neon-glow-emerald transition-all duration-500">${String.fromCharCode(65 + index)}</div>
+                                        <span class="text-xl lg:text-2xl font-semibold text-slate-200 group-hover:text-white transition-all">${option}</span>
+                                    </div>
+                                </button>
+                            `).join('')}
+                        </div>
+                        <div id="questionFeedback" class="hidden mt-12 p-8 rounded-3xl bg-gradient-to-r from-neon-emerald/20 to-teal-500/20 border border-neon-emerald/50 backdrop-blur-xl">
+                            <div class="text-center">
+                                <i class="fas fa-${this.isCorrectAnswer() ? 'check-circle' : 'times-circle'} text-6xl ${this.isCorrectAnswer() ? 'text-emerald-400' : 'text-red-400'} mb-6"></i>
+                                <h4 class="text-3xl font-bold text-white mb-4">${this.isCorrectAnswer() ? 'إجابة صحيحة!' : 'إجابة خاطئة'}</h4>
+                                <p class="text-xl text-slate-200">${this.questions[this.currentQuestion].explanation}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                this.updateProgress();
+                document.getElementById('nextQuestionBtn').classList.toggle('hidden', this.userAnswers[this.currentQuestion] === undefined);
+            }
+
+            selectAnswer(index) {
+                this.userAnswers[this.currentQuestion] = index;
+                const isCorrect = index === this.questions[this.currentQuestion].correct;
+                if (isCorrect) this.score += this.questions[this.currentQuestion].points;
+
+                this.updateScoreDisplay();
+                document.querySelectorAll('.quiz-option').forEach((btn, i) => {
+                    btn.classList.add('answered');
+                    if (i === this.questions[this.currentQuestion].correct) {
+                        btn.style.borderColor = '#10b981';
+                        btn.style.boxShadow = '0 0 30px rgba(16, 185, 129, 0.5)';
+                    }
+                });
+
+                document.getElementById('questionFeedback').classList.remove('hidden');
+                setTimeout(() => {
+                    document.getElementById('nextQuestionBtn').classList.remove('hidden');
+                }, 1500);
+            }
+
+            nextQuestion() {
+                this.currentQuestion++;
+                if (this.currentQuestion < this.questions.length) {
+                    this.renderQuestion();
+                }                } else {
+                    this.showResults();
+                }
+            }
+
+            updateScoreDisplay() {
+                document.getElementById('currentScore').textContent = this.score;
+                document.getElementById('quizProgressText').textContent = `${this.currentQuestion + 1}/${this.questions.length}`;
+            }
+
+            updateProgress() {
+                const progress = ((this.currentQuestion + 1) / this.questions.length) * 100;
+                document.getElementById('quizProgressBar').style.width = `${progress}%`;
+            }
+
+            showResults() {
+                const percentage = (this.score / 100) * 100;
+                document.getElementById('quizContainer').classList.add('hidden');
+                document.getElementById('quizResults').classList.remove('hidden');
+
+                // Update final score
+                document.getElementById('finalScoreNum').textContent = percentage.toFixed(0);
+                
+                // Update result based on score
+                const resultData = this.getResultData(percentage);
+                document.getElementById('resultTitle').textContent = resultData.title;
+                document.getElementById('resultTitle').className = `text-5xl lg:text-6xl font-black ${resultData.color}`;
+                document.getElementById('resultMessage').textContent = resultData.message;
+
+                // Save to localStorage
+                this.saveQuizResult(percentage);
+                this.updateBestScore(percentage);
+
+                // Animate score circle
+                this.animateScoreCircle(percentage);
+            }
+
+            getResultData(percentage) {
+                if (percentage >= 90) {
+                    return {
+                        title: 'خبير سيبراني 🏆',
+                        message: 'مستوى احترافي! أنت جاهز للعمل في مجال الأمن السيبراني.',
+                        color: 'gradient-text'
+                    };
+                } else if (percentage >= 70) {
+                    return {
+                        title: 'ممتاز! 🎉',
+                        message: 'نتيجة رائعة! استمر في التعلم لتصبح خبيراً.',
+                        color: 'text-neon-emerald'
+                    };
+                } else if (percentage >= 50) {
+                    return {
+                        title: 'جيد 👍',
+                        message: 'أساسيات قوية! راجع الدروس لتحسين النتيجة.',
+                        color: 'text-yellow-400'
+                    };
+                } else {
+                    return {
+                        title: 'يحتاج تطوير 📚',
+                        message: 'ابدأ من جديد وستحقق نتائج أفضل!',
+                        color: 'text-orange-400'
+                    };
+                }
+            }
+
+            animateScoreCircle(target) {
+                let current = 0;
+                const increment = target / 100;
+                const timer = setInterval(() => {
+                    current += increment * 5;
+                    if (current >= target) {
+                        document.getElementById('finalScoreNum').textContent = target.toFixed(0);
+                        clearInterval(timer);
+                    } else {
+                        document.getElementById('finalScoreNum').textContent = current.toFixed(0);
+                    }
+                }, 50);
+            }
+
+            saveQuizResult(score) {
+                const results = JSON.parse(localStorage.getItem('quizResults') || '[]');
+                results.unshift({
+                    score: score,
+                    date: new Date().toLocaleDateString('ar-SA'),
+                    timestamp: Date.now()
+                });
+                // Keep only last 10 results
+                localStorage.setItem('quizResults', JSON.stringify(results.slice(0, 10)));
+            }
+
+            updateBestScore(score) {
+                if (score > this.bestScore) {
+                    localStorage.setItem('bestQuizScore', score);
+                    this.bestScore = score;
+                }
+            }
+
+            restart() {
+                this.currentQuestion = 0;
+                this.score = 0;
+                this.userAnswers = [];
+                document.getElementById('quizResults').classList.add('hidden');
+                document.getElementById('quizContainer').classList.remove('hidden');
+                this.renderQuestion();
+            }
+
+            downloadCertificate() {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = 800;
+                canvas.height = 600;
+
+                // Create certificate
+                const gradient = ctx.createLinearGradient(0, 0, 800, 600);
+                gradient.addColorStop(0, '#0a0e1f');
+                gradient.addColorStop(1, '#151b30');
+
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, 800, 600);
+
+                // Add text
+                ctx.fillStyle = '#10b981';
+                ctx.font = 'bold 60px Cairo';
+                ctx.textAlign = 'center';
+                ctx.fillText('شهادة إتمام الاختبار', 400, 150);
+
+                ctx.fillStyle = '#ffffff';
+                ctx.font = 'bold 120px Cairo';
+                ctx.fillText(`${this.score}/100`, 400, 300);
+
+                ctx.fillStyle = '#10b981';
+                ctx.font = 'bold 40px Cairo';
+                ctx.fillText(`تاريخ: ${new Date().toLocaleDateString('ar-SA')}`, 400, 400);
+                ctx.fillText('مدرسة صلالة الشرقية', 400, 470);
+
+                // Download
+                canvas.toBlob((blob) => {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `cyber-quiz-certificate-${this.score}-${Date.now()}.png`;
+                    a.click();
+                });
+            }
+        }
+
+        // ========================================
+        // GLOBAL FUNCTIONS & INIT
+        // ========================================
+        let passwordChecker, quiz;
+
+        // Tip toggle function
+        function toggleTip(card, tipText) {
+            const tip = card.querySelector('p');
+            tip.style.opacity = tip.style.opacity === '1' ? '0' : '1';
+            tip.style.maxHeight = tip.style.maxHeight === '60px' ? '0' : '60px';
+            card.style.transform = tip.style.opacity === '1' ? 'scale(1.02) rotate(2deg)' : 'scale(1)';
+        }
+
+        // Share function
+        function shareScore(platform) {
+            const score = quiz.score;
+            const message = `حصلت على ${score}/100 في اختبار الأمن السيبراني! 🛡️\nأسبوع الأمن السيبراني - مدرسة صلالة الشرقية`;
+            const url = window.location.origin;
+            
+            let shareUrl;
+            switch(platform) {
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(message)}&url=${encodeURIComponent(url)}`;
+                    break;
+                case 'whatsapp':
+                    shareUrl = `https://wa.me/?text=${encodeURIComponent(message + '\n' + url)}`;
+                    break;
+            }
+            
+            window.open(shareUrl, '_blank');
+        }
+
+        // Initialize everything when DOM loads
+        document.addEventListener('DOMContentLoaded', () => {
+            passwordChecker = new PasswordChecker();
+            quiz = new CyberQuiz();
+
+            // Load previous best password
+            const bestPassword = localStorage.getItem('bestPassword');
+            if (bestPassword) {
+                console.log('أفضل كلمة مرور سابقة:', JSON.parse(bestPassword));
+            }
+
+            // Load quiz history
+            const quizHistory = JSON.parse(localStorage.getItem('quizResults') || '[]');
+            console.log('سجل الاختبارات:', quizHistory);
+        });
+
+        // Custom CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shimmer {
+                0% { transform: translateX(-100%); }
+                100% { transform: translateX(100%); }
+            }
+            @keyframes spin-slow {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            .password-weak { background: linear-gradient(90deg, #ef4444, #dc2626); }
+            .password-medium { background: linear-gradient(90deg, #f59e0b, #d97706); }
+            .password-strong { background: linear-gradient(90deg, #10b981, #059669); }
+            .password-perfect { background: linear-gradient(90deg, #059669, #047857); }
+            .quiz-option.answered {
+                pointer-events: none;
+            }
+            .perspective-1000 {
+                perspective: 1000px;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
